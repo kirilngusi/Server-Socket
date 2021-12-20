@@ -17,7 +17,8 @@ const httpServer = createServer(app);
 
 const io = new Server(httpServer, {
     cors: {
-        origin: corsOrigin,
+        origin: "https://client-socket-kg4qitj7a-kirilngusi.vercel.app/",
+        methods: ["GET", "POST"],
         credentials:true,
     }
 })
