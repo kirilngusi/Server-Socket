@@ -7,7 +7,6 @@ import {version } from '../package.json';
 import socket from './socket';
 
 const port = config.get<number>('port');
-const host = config.get<string>('host');
 const corsOrigin = config.get<string>('corsOrigin');
 
 const app = express();
@@ -25,7 +24,7 @@ app.get('/', (req, res) => {
     res.send("Server is up ");
 })
 
-httpServer.listen(port, host , () => {
+httpServer.listen(port , () => {
     logger.info("Server listening")
     logger.info(`Version ${version}`);
 
