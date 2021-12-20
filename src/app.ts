@@ -6,6 +6,8 @@ import logger from './utils/logger';
 import {version } from '../package.json';
 import socket from './socket';
 
+import cors from 'cors';
+
 const port = config.get<number>('port');
 const corsOrigin = config.get<string>('corsOrigin');
 
@@ -19,9 +21,11 @@ const io = new Server(httpServer, {
         credentials:true,
     }
 })
+app.use(cors());
 
 app.get('/', (req, res) => {
     res.send("Server is up ");
+    console.log("Server running");
 })
 
 httpServer.listen(port , () => {
